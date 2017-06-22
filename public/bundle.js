@@ -24954,45 +24954,108 @@
 	    Link = _require.Link,
 	    IndexLink = _require.IndexLink;
 
-	// var Nav = React.createClass({
-	//   render: function() {
-	//     return (
-	//       <div>
-	//         <h2>Nav Component</h2>
-	//         <IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Get Weather</IndexLink>
-	//         <Link to="/about" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>About</Link>
-	//         <Link to="/examples" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Examples</Link>
-	//       </div>
-	//     );
-	//   }
-	// });
+	var Nav = React.createClass({
+	  displayName: 'Nav',
 
-	var Nav = function Nav() {
-	  return React.createElement(
-	    'div',
-	    null,
-	    React.createElement(
-	      'h2',
-	      null,
-	      'Nav Component'
-	    ),
-	    React.createElement(
-	      IndexLink,
-	      { to: '/', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
-	      'Get Weather'
-	    ),
-	    React.createElement(
-	      Link,
-	      { to: '/about', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
-	      'About'
-	    ),
-	    React.createElement(
-	      Link,
-	      { to: '/examples', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
-	      'Examples'
-	    )
-	  );
-	};
+	  onSearch: function onSearch(e) {
+	    e.preventDefault();
+	    alert('Not yet wired up!');
+	  },
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      { className: 'top-bar' },
+	      React.createElement(
+	        'div',
+	        { className: 'top-bar-left' },
+	        React.createElement(
+	          'ul',
+	          { className: 'menu' },
+	          React.createElement(
+	            'li',
+	            { className: 'menu-text' },
+	            'React Weather App'
+	          ),
+	          React.createElement(
+	            'li',
+	            null,
+	            React.createElement(
+	              IndexLink,
+	              { to: '/', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
+	              'Get Weather'
+	            )
+	          ),
+	          React.createElement(
+	            'li',
+	            null,
+	            React.createElement(
+	              Link,
+	              { to: '/about', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
+	              'About'
+	            )
+	          ),
+	          React.createElement(
+	            'li',
+	            null,
+	            React.createElement(
+	              Link,
+	              { to: '/examples', activeClassName: 'active', activeStyle: { fontWeight: 'bold' } },
+	              'Examples'
+	            )
+	          )
+	        )
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'top-bar-right' },
+	        React.createElement(
+	          'form',
+	          { onSubmit: this.onSearch },
+	          React.createElement(
+	            'ul',
+	            { className: 'menu' },
+	            React.createElement(
+	              'li',
+	              null,
+	              React.createElement('input', { type: 'search', placeholder: 'Search weather' })
+	            ),
+	            React.createElement(
+	              'li',
+	              null,
+	              React.createElement('input', { type: 'submit', className: 'button', value: 'Get Weather' })
+	            )
+	          )
+	        )
+	      )
+	    );
+	  }
+	});
+
+	// var Nav = () => {
+	//   return (
+	//     <div className="top-bar">
+	//       <div className="top-bar-left">
+	//         <ul className="menu">
+	//           <li className="menu-text">React Weather App</li>
+	//           <li>
+	//             <IndexLink to="/" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Get Weather</IndexLink>
+	//           </li>
+	//           <li>
+	//             <Link to="/about" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>About</Link>
+	//           </li>
+	//           <li>
+	//             <Link to="/examples" activeClassName="active" activeStyle={{fontWeight: 'bold'}}>Examples</Link>
+	//           </li>
+	//         </ul>
+	//       </div>
+	//       <div className="top-bar-right">
+	//         <form onSubmit={this.onSearch}>
+	//
+	//         </form>
+	//       </div>
+	//     </div>
+	//   );
+	// };
 
 	module.exports = Nav;
 
